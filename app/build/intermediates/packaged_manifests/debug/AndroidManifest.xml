@@ -18,7 +18,6 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.AMST_1EP_Grupo8" >
         <activity android:name="com.example.amst_1ep_grupo8.graficas" />
         <activity android:name="com.example.amst_1ep_grupo8.busquedaResultado" />

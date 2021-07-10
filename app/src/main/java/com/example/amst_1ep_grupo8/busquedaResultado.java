@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,6 +21,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.net.Inet4Address;
 
 public class busquedaResultado extends AppCompatActivity {
     private RequestQueue mQueue;
@@ -42,7 +46,7 @@ public class busquedaResultado extends AppCompatActivity {
                             JSONArray jsonArray = response.getJSONArray("results");
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject heroes_lista=jsonArray.getJSONObject(i);
-                                funcion_crear_botones(heroes_lista.getString("name"));
+                                funcion_crear_botones(heroes_lista.getString("name"), heroes_lista.getString("id"));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -57,11 +61,18 @@ public class busquedaResultado extends AppCompatActivity {
         mQueue.add(request);
     }
 
-    public void funcion_crear_botones(String nombre){
+    public void funcion_crear_botones(String nombre,String id_hero){
         LinearLayout general= (LinearLayout) findViewById(R.id.general);
         Button button = new Button(this);
         button.setText(nombre);
+        button.setOnClickListener(v->function_detalle(id_hero));
         general.addView(button);
+    }
+
+    private void function_detalle(String id_hero) {
+        Intent nuevo=new Intent(this,graficas.class);
+        nuevo.putExtra("id_hero",id_hero);
+        startActivity(nuevo);
     }
 }
 

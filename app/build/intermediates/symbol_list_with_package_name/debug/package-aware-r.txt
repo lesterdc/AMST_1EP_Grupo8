@@ -1769,6 +1769,7 @@ id auto
 id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
+id bargraph
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -1870,8 +1871,8 @@ id group_divider
 id grouping
 id groups
 id guideline
-id habilidades_result
 id header_title
+id heroeData
 id hideable
 id home
 id homeAsUp
