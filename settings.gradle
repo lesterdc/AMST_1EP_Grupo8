@@ -1,0 +1,2 @@
+rootProject.name = "AMST_1EP_Grupo8"
+include ':app'
